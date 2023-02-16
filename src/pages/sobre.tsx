@@ -1,3 +1,4 @@
+import Contato from "@/components/Contato"
 import Skills from "@/components/Skills"
 import SobreComponent from "@/components/Sobre"
 import { Typography, Container, Stack } from "@mui/material"
@@ -14,6 +15,7 @@ export default function Sobre(){
             <Stack spacing={4}>
                 <SobreComponent/>
                 <Skills/>
+                <Contato/>
             </Stack>
         </Container>
     </>
