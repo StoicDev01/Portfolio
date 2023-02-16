@@ -22,7 +22,7 @@ export default function Home() {
             paddingTop : "100px"
           }}
         >
-          <Typography variant="h2" fontWeight={600}
+          <Typography variant="h1" fontWeight={600} fontSize={52}
             sx={{
             }}
           >

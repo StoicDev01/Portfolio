@@ -1,11 +1,20 @@
 import Image from "next/image"
 import { Paper, Typography } from "@mui/material"
+import React from "react";
+import { TbWorld} from "react-icons/tb/index.js"
+import Link from "next/link";
 
-export default function ProjectItem(){
+export interface ProjectItemProps {
+    projectName : string;
+    githubLink : string;
+    siteLink? : string;
+    imagePath : string;
+    description : string;
+}
 
-    function onFocus(){
+export default function ProjectItem(props : ProjectItemProps){
 
-    }
+    const [ mouseOverlayHover, setMouseOverlayHover] = React.useState(false);
 
     return (
         <div>
@@ -22,15 +31,14 @@ export default function ProjectItem(){
                         width : "100%",
                         height : "100%",
                         display : "flex",
-                        justifyContent : "center",
-                        alignItems : "center"
+                        overflow : "auto"
                     }}
                 >
 
                     {/* Size Wrapper */}
                     <div
                         style={{
-                            width : "95%", height : "auto", margin : "auto",
+                            width : "100%", height : "auto", margin : "10px",
                             boxShadow : "2px 2px 5px black", overflow : "auto", position : "relative"
                         }}
                     >
@@ -38,15 +46,52 @@ export default function ProjectItem(){
                         { /* Overlay */}
                         <div
                             style={{
-                                width : "100%", height : "100%", background : "red", zIndex : 9,
-                                position : "absolute", top : 0, left : 0, opacity : 0.2
+                                width : "100%", height : "100%", background : "white", zIndex : 9,
+                                position : "absolute", top : 0, left : 0, opacity : mouseOverlayHover ? 0.2 : 0.0,
+                                transitionProperty : "opacity",
+                                transitionDuration : "0.5s"
                             }}
-                        >
 
+                            onMouseEnter={ () => {setMouseOverlayHover(true)}}
+                            onMouseLeave={() =>  {setMouseOverlayHover(false)}}
+                        >
+                            { /* Project Links */}
+                            <div 
+                                style={{
+                                    display : "flex",
+                                    justifyContent : "center",
+                                    alignItems : "center",
+                                    height : "100%",
+                                    gap : "10px"
+                                }}
+                            >
+                                {/* Github link */}
+                                <a href={props.githubLink} target={"_blank"} rel="noReferrer">
+                                    <Image src="/icons/github.png" alt="Github repo" width={512} height={512}
+                                        style={{
+                                            width : "40px", height : "40px"
+                                        }}
+                                    />
+                                </a>
+
+                                {/* Site Link */}
+                                { props.siteLink && (
+                                    <a href={props.siteLink} target={"_blank"} rel="noReferrer">
+                                        <TbWorld
+                                            style={{
+                                                width : "40px", height : "40px",
+                                                opacity : "1.0",
+                                                color : "black"
+                                            }}
+                                        />
+                                    </a>
+                                )}
+
+                            </div>
                         </div>
 
                         { /* Project image */}
-                        <Image src="/projects/bytethesis.png" alt="bytethesis" width={1600} height={723} 
+                        <Image src={props.imagePath} alt="bytethesis" width={1600} height={723} 
                             onFocus={ () => {}}
 
                             style={{
@@ -60,10 +105,18 @@ export default function ProjectItem(){
 
             <Typography variant="h5" fontWeight={600}
                 sx={{
-                    marginTop : "4px"
+                    paddingTop : "8px"
                 }}
             >
-                Project Name
+                {props.projectName}
+            </Typography>
+
+            <Typography
+                sx={{
+                    paddingTop : "4px"
+                }}
+            >
+                {props.description}            
             </Typography>
         </div>
     )
