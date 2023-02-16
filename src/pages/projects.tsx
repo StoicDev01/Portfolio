@@ -4,40 +4,9 @@ import { ProjectItemProps } from "@/components/ProjectItem";
 
 import { Typography, Container, Paper, Grid } from "@mui/material";
 
-const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non blandit lectus. Pellentesque lacinia ultrices mollis. Aliquam vel nisl posuere, auctor ipsum non, dignissim nisi."
-
-const projects :ProjectItemProps[]= [
-    {
-        projectName : "Bytethesis",
-        githubLink : "https://github.com/izkeas/ByteThesis",
-        imagePath : "/projects/bytethesis.png",
-        siteLink : "https://bytethesis.one",
-        description : "Um site blog de tecnologia voltado a programação criado com hugo framework"
-    },
-    {
-        projectName : "ChaoticForge",
-        githubLink : "https://github.com/izkeas/ChaoticForge",
-        imagePath : "/projects/chaoticforge.png",
-        siteLink : "https://chaoticforge.onrender.com",
-        description : "Um site para escritores e jogadores de RPG que dá insights de criação de personagems, mundos e histórias."
-    },
-    {
-        projectName : "Go Pong!",
-        githubLink : "https://github.com/izkeas/Go-Pong",
-        imagePath : "/projects/go-pong.png",
-        description : "Jogo Pong recriado na linguagem GO com a framework Raylib"
-    },
-    {
-        projectName : "Atlas MapGenerator",
-        githubLink : "https://github.com/izkeas/Atlas-MapGenerator",
-        imagePath : "/projects/MapGenerator.png",
-        description : "Um programa gerador de mapas feito usando a linguagem C++, Opengl e SimplexNoise"
-    }
-]
+import projects from "@/data/projects";
 
 export default function ProjectContainer(){
-
-
 
     return (
         <>

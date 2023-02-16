@@ -6,8 +6,10 @@ import Stats from '@/components/Stats'
 import Links from '@/components/Links'
 
 import { Container, Grid, Paper, Box, Typography, List, ListItem, Button, IconButton } from "@mui/material"
+import projects from '@/data/projects'
 
 export default function Home() {
+
 
   return (
     <>
