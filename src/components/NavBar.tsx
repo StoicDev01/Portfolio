@@ -13,24 +13,28 @@ export default function NavBar(props : Props){
         <div>
             <Toolbar>
 
-                <AiOutlineHome 
-                    style={{
-                        width : "30px",
-                        height : "30px",
-                        marginLeft : "10px",
-                        marginRight : "10px"
-                    }}
-                />
+                <Link href="/">
+                    <AiOutlineHome 
+                        style={{
+                            width : "30px",
+                            height : "30px",
+                            marginLeft : "10px",
+                            marginRight : "10px"
+                        }}
+                        />
+                </Link> 
 
-                <Typography
-                    variant="h5"
-                    fontWeight={700}
+                <Link href="/"> 
+                    <Typography
+                        variant="h5"
+                        fontWeight={700}
 
-                    sx={{
-                    }}
-                >
-                    Ryan C. Sousa
-                </Typography>
+                        sx={{
+                        }}
+                    >
+                        Ryan C. Sousa
+                    </Typography>
+                </Link> 
 
                 { /* Medium Screens */}
                 <Box
