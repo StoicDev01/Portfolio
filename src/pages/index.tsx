@@ -1,63 +1,48 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import {Toolbar, AppBar, Container, Typography, Box, Button } from "@mui/material"
-import { AiOutlineHome } from "react-icons/ai/index.js"
 import Link from 'next/link'
+
+import Stats from '@/components/Stats'
+import Links from '@/components/Links'
+
+import { Container, Grid, Paper, Box, Typography, List, ListItem, Button, IconButton } from "@mui/material"
 
 export default function Home() {
 
-  const navBarPages =[
-    {
-      page: "about",
-      href : "/about"
-    }
-  ]
-
   return (
     <>
-      <AppBar>
-        <Container>
-          <Toolbar>
+      <Container
+        sx={{
+          maxWidth : { md : "900px"}
+        }}
+      >
 
-            <AiOutlineHome 
-              style={{
-                width : "30px",
-                height : "30px",
-                marginLeft : "10px",
-                marginRight : "10px"
-              }}
-            />
+        <div 
+          style={{
+            paddingTop : "100px"
+          }}
+        >
+          <Typography variant="h2" fontWeight={600}
+            sx={{
+            }}
+          >
+            Sem tempo para bullshit
+          </Typography>
 
-            <Typography
-              variant="h5"
-              fontWeight={700}
-            >
-              Portfolio
-            </Typography>
+          <Typography
+            sx={{
+              maxWidth : "500px"
+            }}
+          >
+            Eu sou um estudante de programação autodidata por mais de 3 anos fascinado em criar novos projetos e soluções
+          </Typography>
+        </div>
 
-            <Box
-              style={{
-                paddingLeft : "20px",
-                paddingRight : "20px"
-              }}
-            >
-              { navBarPages.map( (value) => (
-                <Link href={value.href} key={value.page}>
-                  <Button
-                  >
-                    <Typography>
+        <Links/>
 
-                    {value.page}
-                    </Typography>
-                  </Button>
-                </Link>
-              ))}
-            </Box>
+      </Container>
 
-
-          </Toolbar>
-        </Container>
-      </AppBar>
+      <Stats/>
     </>
   )
 }
