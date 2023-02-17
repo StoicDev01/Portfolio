@@ -16,7 +16,11 @@ export default function ProjectContainer(){
                     paddingTop : "50px"
                 }}
             >
-                <Typography variant="h3" fontWeight={600}>
+                <Typography variant="h1"
+                    style={{
+                        paddingBottom : "10px"
+                    }}
+                >
                     Projetos
                 </Typography>
 
@@ -27,7 +31,7 @@ export default function ProjectContainer(){
                 >
 
                     { projects.map( (proj) => (
-                        <Grid item xs={6} key={proj.projectName}>
+                        <Grid item xs={12} md={6} key={proj.projectName}>
                             <ProjectItem {...proj}/>
                         </Grid>
                     ))}

@@ -1,13 +1,9 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { createTheme, ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import NavBar from '@/components/NavBar'
-
-const theme = createTheme({
-  palette : {
-    mode : "dark"
-  }
-})
+import theme from '@/components/Theme'
+import Background from '@/components/Background'
 
 const navBarPages =[
   {
@@ -15,8 +11,8 @@ const navBarPages =[
     href : "/sobre"
   },
   {
-    page: "Projects",
-    href : "/projects"
+    page: "Projetos",
+    href : "/projetos"
   }
 ]
 
@@ -24,8 +20,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavBar pages={navBarPages}/>
-      <Component {...pageProps} />
+      <CssBaseline/>
+      <Background>
+        <NavBar pages={navBarPages}/>
+        <Component {...pageProps} />
+      </Background>
+
     </ThemeProvider>
   )
 }

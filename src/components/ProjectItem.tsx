@@ -1,8 +1,12 @@
-import Image from "next/image"
-import { Paper, Typography } from "@mui/material"
 import React from "react";
-import { TbWorld} from "react-icons/tb/index.js"
 import Link from "next/link";
+import Shadow from "./Shadow";
+import Image from "next/image"
+
+import { Paper, Typography } from "@mui/material"
+import { TbWorld} from "react-icons/tb/index.js"
+import NeonSelect from "./NeonSelect";
+import {useTheme} from "@mui/material";
 
 export interface ProjectItemProps {
     projectName : string;
@@ -15,41 +19,32 @@ export interface ProjectItemProps {
 export default function ProjectItem(props : ProjectItemProps){
 
     const [ mouseOverlayHover, setMouseOverlayHover] = React.useState(false);
+    const theme = useTheme();
 
     return (
         <div>
-            <Paper
-                sx={{
-                    maxWidth : "100%",
-                    height : "240px",
-                    overflow : "auto"
-                }}
-            >
-
-                <div
-                    style={{
-                        width : "100%",
-                        height : "100%",
-                        display : "flex",
-                        overflow : "auto"
+            <Shadow>
+                <Paper
+                    sx={{
+                        maxWidth : "100%",
+                        overflow : "auto",
+                        boxSizing : "border-box"
                     }}
                 >
-
                     {/* Size Wrapper */}
                     <div
                         style={{
-                            width : "100%", height : "auto", margin : "10px",
-                            boxShadow : "2px 2px 5px black", overflow : "auto", position : "relative"
+                            position : "relative", margin : "10px", height : "90%",
                         }}
                     >
-
                         { /* Overlay */}
                         <div
                             style={{
                                 width : "100%", height : "100%", background : "white", zIndex : 9,
-                                position : "absolute", top : 0, left : 0, opacity : mouseOverlayHover ? 0.2 : 0.0,
-                                transitionProperty : "opacity",
-                                transitionDuration : "0.5s"
+                                position : "absolute", top : 0, left : 0,
+                                backgroundColor : mouseOverlayHover ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.0)",
+                                transitionProperty : "background-color",
+                                transitionDuration : "0.5s",
                             }}
 
                             onMouseEnter={ () => {setMouseOverlayHover(true)}}
@@ -69,7 +64,9 @@ export default function ProjectItem(props : ProjectItemProps){
                                 <a href={props.githubLink} target={"_blank"} rel="noReferrer">
                                     <Image src="/icons/github.png" alt="Github repo" width={512} height={512}
                                         style={{
-                                            width : "40px", height : "40px"
+                                            width : "40px", height : "40px",
+                                            transitionDuration : "0.5s", transitionProperty : "opacity",
+                                            opacity : mouseOverlayHover ? 1.0 : 0.0
                                         }}
                                     />
                                 </a>
@@ -80,8 +77,9 @@ export default function ProjectItem(props : ProjectItemProps){
                                         <TbWorld
                                             style={{
                                                 width : "40px", height : "40px",
-                                                opacity : "1.0",
-                                                color : "black"
+                                                color : "black",
+                                                transitionDuration : "0.5s", transitionProperty : "opacity",
+                                                opacity : mouseOverlayHover ? 1.0 : 0.0
                                             }}
                                         />
                                     </a>
@@ -91,31 +89,28 @@ export default function ProjectItem(props : ProjectItemProps){
                         </div>
 
                         { /* Project image */}
-                        <Image src={props.imagePath} alt="bytethesis" width={1600} height={723} 
-                            onFocus={ () => {}}
+                        <Image src={props.imagePath} alt="bytethesis" width={1600} height={700} 
 
                             style={{
-                                width : "100%", height : "100%", display : "block"
+                                outlineStyle : mouseOverlayHover ? "solid" : "none",
+                                outlineColor : theme.palette.primary.main,
+                                width : "100%", height : "auto", display : "block"
                             }}
                         />
                     </div>
-                </div>
-
-            </Paper>
-
+                </Paper>
+            </Shadow>
+            
+            { /* Project Name */}
             <Typography variant="h5" fontWeight={600}
                 sx={{
-                    paddingTop : "8px"
+                    paddingTop : "15px"
                 }}
             >
                 {props.projectName}
             </Typography>
 
-            <Typography
-                sx={{
-                    paddingTop : "4px"
-                }}
-            >
+            <Typography>
                 {props.description}            
             </Typography>
         </div>

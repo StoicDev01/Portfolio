@@ -1,6 +1,8 @@
 import { Paper, Typography } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 export default function Contato(){
+    const theme = useTheme();
 
     return (
         <>
@@ -19,7 +21,13 @@ export default function Contato(){
                             overflow : "auto"
                         }}
                     >
-                        <div style={{margin : "10px"}}>
+                        
+                        <div 
+                            style={{
+                                margin : "10px",
+                                color : theme.palette.primary.main
+                            }}
+                        >
                             izkeas@protonmail.com
                         </div>
                     </Paper>

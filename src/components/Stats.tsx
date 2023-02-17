@@ -13,24 +13,6 @@ export default function Stats(){
                     bottom : 30
                 }}
             >
-            <Grid item xs={3}>
-                <div
-                    style={{
-                        width : "fit-content",
-                        margin : "auto",
-                        textAlign : "center"
-
-                    }}
-                >
-                    <Typography variant="h3">
-                        10
-                    </Typography>
-
-                    <Typography>
-                        Projetos
-                    </Typography>
-                </div>
-            </Grid>
 
             <Grid item xs={3}>
                 <div
@@ -41,7 +23,7 @@ export default function Stats(){
 
                     }}
                 >
-                    <Typography variant="h3">
+                    <Typography variant="h3" color={"primary.main"} fontWeight={600}>
                     +400
                     </Typography>
 
@@ -60,7 +42,7 @@ export default function Stats(){
 
                     }}
                 >
-                    <Typography variant="h3">
+                    <Typography variant="h3" color={"primary.main"}  fontWeight={600}> 
                     18
                     </Typography>
 
@@ -78,7 +60,7 @@ export default function Stats(){
                         textAlign : "center"
                     }}
                 >
-                    <Typography variant="h3">
+                    <Typography variant="h3" color={"primary.main"} fontWeight={600}>
                     {projectCount}
                     </Typography>
 

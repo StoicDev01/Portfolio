@@ -1,4 +1,4 @@
-import {Toolbar, AppBar, Container, Typography, Box, Button } from "@mui/material"
+import {Toolbar, AppBar, Container, Typography, Box, Button, useTheme } from "@mui/material"
 import { AiOutlineHome } from "react-icons/ai/index.js"
 import { BiMenu } from "react-icons/bi/index.js"
 import Link from 'next/link'
@@ -9,6 +9,8 @@ interface Props{
 }
 
 export default function NavBar(props : Props){
+    const theme = useTheme();
+
     return(
         <div>
             <Toolbar>
@@ -19,14 +21,15 @@ export default function NavBar(props : Props){
                             width : "30px",
                             height : "30px",
                             marginLeft : "10px",
-                            marginRight : "10px"
+                            marginRight : "10px",
+                            color : theme.palette.primary.main
                         }}
                         />
                 </Link> 
 
                 <Link href="/"> 
                     <Typography
-                        variant="h5"
+                        variant="h3"
                         fontWeight={700}
 
                         sx={{
@@ -39,10 +42,8 @@ export default function NavBar(props : Props){
                 { /* Medium Screens */}
                 <Box
                     sx={{
-                        paddingLeft : "20px",
-                        paddingRight : "20px",
+                        paddingLeft : "60px",
                         display : { xs : "none", md : "flex"}
-
                     }}
                 >
                     <nav>
@@ -50,7 +51,7 @@ export default function NavBar(props : Props){
                             <Link href={value.href} key={value.page}>
                             <Button
                             >
-                                <Typography>
+                                <Typography fontWeight={600}>
 
                                 {value.page}
                                 </Typography>
