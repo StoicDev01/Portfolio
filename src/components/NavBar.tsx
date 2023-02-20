@@ -2,6 +2,8 @@ import {Toolbar, Typography, Box, Button, useTheme } from "@mui/material"
 import { BiMenu } from "react-icons/bi/index.js"
 import { BsCodeSlash} from "react-icons/bs/index.js"
 import Link from 'next/link'
+import MenuPanel from "./MenuPanel";
+import React from "react"
 
 interface Props{
     pages? : { page : string, href: string} [ ],
@@ -11,8 +13,12 @@ interface Props{
 export default function NavBar(props : Props){
     const theme = useTheme();
 
+    const [ menuPanelActive, setMenuPanelActive] = React.useState(false);
+
     return(
         <div>
+            <MenuPanel pages={props.pages} active={menuPanelActive} onClose={() => setMenuPanelActive(false)}/>
+
             <Toolbar>
 
                 <Link href="/">
@@ -69,8 +75,11 @@ export default function NavBar(props : Props){
                         marginRight : 0
                     }}
                 >
-                    <Button 
-                        onClick={ () => props.onclickMenu ? props.onclickMenu() : 0 }
+                    <Button
+                        style={{
+                            display : menuPanelActive ? "none" : "block"
+                        }}
+                        onClick={ () => setMenuPanelActive( !menuPanelActive ) }
                     >
                         <BiMenu
                             style={{
@@ -80,8 +89,7 @@ export default function NavBar(props : Props){
                         />
                     </Button>
                 </Box>
-
-
+            
             </Toolbar>
         </div>
     )

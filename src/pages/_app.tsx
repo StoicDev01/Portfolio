@@ -4,6 +4,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import NavBar from '@/components/NavBar'
 import theme from '@/components/Theme'
 import Background from '@/components/Background'
+import React from "react"
 
 const navBarPages =[
   {
@@ -21,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
+
       <Background>
         <NavBar pages={navBarPages}/>
         <Component {...pageProps} />
