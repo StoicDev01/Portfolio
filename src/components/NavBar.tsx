@@ -1,6 +1,6 @@
-import {Toolbar, AppBar, Container, Typography, Box, Button, useTheme } from "@mui/material"
-import { AiOutlineHome } from "react-icons/ai/index.js"
+import {Toolbar, Typography, Box, Button, useTheme } from "@mui/material"
 import { BiMenu } from "react-icons/bi/index.js"
+import { BsCodeSlash} from "react-icons/bs/index.js"
 import Link from 'next/link'
 
 interface Props{
@@ -16,7 +16,7 @@ export default function NavBar(props : Props){
             <Toolbar>
 
                 <Link href="/">
-                    <AiOutlineHome 
+                    <BsCodeSlash
                         style={{
                             width : "30px",
                             height : "30px",

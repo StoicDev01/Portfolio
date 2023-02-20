@@ -2,6 +2,12 @@ import { ProjectItemProps } from "@/components/ProjectItem";
 
 const projects :ProjectItemProps[]= [
     {
+        projectName : "Portfolio",
+        githubLink : "https://github.com/izkeas/Portfolio",
+        imagePath : "/projects/portfolio.png",
+        description : "Meu site de portfolio feito com React, NextJs e Typescript."
+    },
+    {
         projectName : "Bytethesis",
         githubLink : "https://github.com/izkeas/ByteThesis",
         imagePath : "/projects/bytethesis.png",
