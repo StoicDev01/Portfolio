@@ -2,6 +2,13 @@ import { ProjectItemProps } from "@/components/ProjectItem";
 
 const projects :ProjectItemProps[]= [
     {
+        projectName : "CodeRecipes",
+        githubLink : "https://github.com/izkeas/code-recipes",
+        imagePath : "https://raw.githubusercontent.com/izkeas/code-recipes/main/img/home.png",
+        description : "Um site feito em NextJs que lista diversos algoritmos, templates e design patterns.",
+        siteLink : "https://code-recipes.vercel.app"
+    },
+    {
         projectName : "Portfolio",
         githubLink : "https://github.com/izkeas/Portfolio",
         imagePath : "/projects/portfolio.png",
@@ -33,6 +40,7 @@ const projects :ProjectItemProps[]= [
         imagePath : "/projects/MapGenerator.png",
         description : "Um programa gerador de mapas feito usando a linguagem C++, Opengl e SimplexNoise"
     }
+
 ]
 
 export default projects;
