@@ -4,6 +4,11 @@ import projects from "@/data/projects";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState, MutableRefObject, Dispatch, SetStateAction } from "react";
 
+interface Props {
+    commmits : number;
+    stars : number;
+}
+
 function statCounterInterval(ref : MutableRefObject<number>, max : number, set : Dispatch<SetStateAction<number>>, delay : number){
     const interval = setInterval( () => {
         if ( ref.current != undefined){
@@ -32,7 +37,7 @@ function StatAnimation(props : {children : React.ReactNode} ){
     )
 }
 
-export default function Stats(){
+export default function Stats(props : Props){
 
     const maxProjects = projects.length;
     const [projectCount, setProjectCount] = useState<number>(0);
@@ -40,18 +45,17 @@ export default function Stats(){
 
     const a = useState(null)
 
-    const maxCommits = 400;
+    const maxCommits = props.commmits;
     const [ commits, setCommits] = useState<number>(0);
     const commitsRef = useRef<number>(0);
 
-    const maxStars = 18;
+    const maxStars = props.stars;
     const [starsCount, setStarsCount] = useState<number>(0);
     const starsRef = useRef<number>(0);
 
     commitsRef.current = commits;
     projectRef.current = projectCount;
     starsRef.current = starsCount;
-
 
     useEffect( ()=> {
         const commitsInterval = statCounterInterval(commitsRef, maxCommits, setCommits, 8);

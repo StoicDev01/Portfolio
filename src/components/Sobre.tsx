@@ -9,10 +9,9 @@ export default function Sobre(){
 
             <Typography
                 sx={{
-                    maxWidth : "500px"
                 }}
             >
-                Eu sou Ryan da Costa Sousa, um estudante de programação autodidata por mais de 3 anos fascinado em criar novos projetos e soluções.
+                 Me chamo Ryan, sou um desenvolvedor FullStack fascinado em criar novos projetos e soluções. Atualmente curso análise e desenvolvimento de sistemas na FAM e faço bootcamps. Tenho projetos portfólio e certificados do HackerRank.
                 <br/>
                 <br/>
                 

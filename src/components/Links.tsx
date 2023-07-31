@@ -9,7 +9,7 @@ export default function Links(){
             }}
         >
           <Grid item>
-            <a href="https://github.com/izkeas" target={"_blank"} rel={"noReferrer"}>
+            <a href="https://github.com/StoicDev01" target={"_blank"} rel={"noReferrer"}>
               <Button
                 sx={{
                   maxWidth : "35px",
@@ -27,7 +27,7 @@ export default function Links(){
           </Grid>
 
           <Grid item>
-            <a href="https://www.linkedin.com/in/ryan-da-costa-sousa-6b1009224/" target={"_blank"} rel={"noReferrer"}>
+            <a href="https://www.linkedin.com/in/ryan-costa-sousa-6b1009224" target={"_blank"} rel={"noReferrer"}>
               <Button
                 sx={{
                   maxWidth : "35px",

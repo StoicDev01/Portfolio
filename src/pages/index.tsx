@@ -1,16 +1,53 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-
 import Stats from '@/components/Stats'
 import Links from '@/components/Links'
 
-import { Container, Grid, Paper, Box, Typography, List, ListItem, Button, IconButton } from "@mui/material"
-import projects from '@/data/projects'
+interface Props {
+  commits : number;
+  stars : number;
+}
 
-export default function Home() {
+import { Container, Typography } from "@mui/material"
 
+export async function getUserStars(){
+  let stars_count = 0;
 
+  /// iterate all repos
+  const res = await fetch("https://api.github.com/users/StoicDev01/repos", {
+    headers: {
+      "Authorization" : `Bearer ${process.env.GITHUB_API}`,
+      "X-GitHub-Api-Version" : "2022-11-28"
+    }
+  });
+
+  const reposList = await res.json();
+  
+  for (const repoItem of reposList){
+    stars_count += repoItem["stargazers_count"];
+  }
+
+  return stars_count;
+}
+
+export async function getUserCommits(){
+  // commits
+  const res = await fetch('https://api.github.com/search/commits?q=author:StoicDev01');
+  const commits = await res.json() as {
+    total_count : number;
+  };
+
+  return commits.total_count;
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      commits : await getUserCommits(),
+      stars : await getUserStars()
+    }
+  };
+}
+
+export default function Home(props : Props) {
   return (
     <>
       <Container
@@ -39,12 +76,9 @@ export default function Home() {
             Eu sou um estudante de programação autodidata por mais de 3 anos fascinado em criar novos projetos e soluções
           </Typography>
         </div>
-
         <Links/>
-
       </Container>
-
-      <Stats/>
+      <Stats commmits={props.commits} stars={props.stars}/>
     </>
   )
 }

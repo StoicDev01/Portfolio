@@ -28,7 +28,7 @@ export default function Contato(){
                                 color : theme.palette.primary.main
                             }}
                         >
-                            izkeas@protonmail.com
+                            ryan.costasousa01@gmail.com
                         </div>
                     </Paper>
                 </Typography>
