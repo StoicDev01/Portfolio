@@ -40,6 +40,15 @@ export default function Skills(){
                 <Image src="/icons/c++.png" alt="c++" width={40} height={40}/>
               </Button>
             </Grid>
+
+            <Grid item >
+              <Button>
+                <Image src="/icons/nextjs.png" alt="nextjs" width={40} height={40}/>
+              </Button>
+            </Grid>
+
+
+
           </Grid>
         </div>
     )
