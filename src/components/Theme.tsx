@@ -23,7 +23,8 @@ const theme =  createTheme({
         body1 : {
             fontSize: "17px",
             lineHeight: "22px"
-        }
+        },
+
     },
 
     palette : {
@@ -37,7 +38,6 @@ const theme =  createTheme({
             primary : "#ECECEC",
             secondary : "#798686"
         },
-
         background : {
             default : "#151717",
             paper : "#212424"
