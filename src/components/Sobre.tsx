@@ -26,10 +26,6 @@ export default function Sobre(){
 
                 <br/>
                 <br/>
-                
-                comecei a programar com 14 anos, criando jogos por pura diversão desde lá visitei várias áreas da programação e várias linguagens e frameworks, aprendi Python, C++
-                e Atualmente Javascript e Typescript.
-
             </Typography>
         </div>
     )
